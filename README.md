@@ -1,4 +1,4 @@
-# Project 3: Around The U.S.
+# se_preject_aroundtheus: Around The U.S.
 
 ### Overview  
 

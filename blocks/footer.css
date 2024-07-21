@@ -1,5 +1,9 @@
 .footer {
   margin-top: 50px;
   margin-bottom: 20px;
-  color: gray;
+}
+.footer__name {
+  margin: 0;
+  font-size: 18px;
+  color: #545454;
 }

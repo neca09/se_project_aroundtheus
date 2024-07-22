@@ -26,7 +26,7 @@ The project provides a platform for users to explore different locations across 
 ![Lake-louise](images/lake-louise.png)
 
 ## Deployment
-The project is deployed on GitHub Pages and can be accessed [here](https://github.com/neca09/se_project_aroundtheus.git).
+The project is deployed on GitHub Pages and can be accessed [here](https://neca09.github.io/se_project_aroundtheus/).
 
 ## Video Demonstration
 A video demonstrating the project can be viewed [here](https://link-to-your-video).

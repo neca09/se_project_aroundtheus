@@ -6,4 +6,13 @@
   margin: 0;
   font-size: 18px;
   color: #545454;
+  line-height: 21.78px;
+}
+@media screen and (max-width: 480px) {
+  .footer {
+    font-size: 14px;
+    margin-left: 19px;
+    width: 100%;
+    line-height: 16.94px;
+  }
 }

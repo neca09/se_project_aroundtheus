@@ -1,6 +1,19 @@
 .header {
   margin-top: 45px;
 }
-.header__logo{
-    max-width: 173px;
+.header__logo {
+  max-width: 173px;
+}
+@media screen and (max-width: 480px) {
+  .header {
+    width: 100%;
+    align-items: baseline;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-bottom: 25px;
+  }
+  .header__logo {
+    max-width: 126px;
+    height: 24px;
+  }
 }

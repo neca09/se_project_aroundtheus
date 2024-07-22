@@ -2,9 +2,8 @@
   display: flex;
   align-items: center;
   max-width: 880px;
-  margin-top: 40px;
-  margin-bottom: 30px;
-  gap: 15px;
+  margin-top: 60px;
+  margin-bottom: 50px;
 }
 .profile__info {
   display: grid;
@@ -20,6 +19,7 @@
   grid-area: button;
   margin: auto;
   border: solid white;
+  border-width: 1px;
 }
 
 .profile__add-button {
@@ -29,10 +29,12 @@
   grid-area: auto;
   margin-left: auto;
   border: solid white;
+  border-width: 2px;
+  border-radius: 2px;
 }
 .profile__title {
-  display: flex;
-  font-size: 48px;
+  display: grid;
+  font-size: 42px;
   line-height: 48px;
   font-weight: 500;
   grid-area: title;
@@ -40,6 +42,11 @@
   align-items: center;
   padding: 0;
   width: max-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 15px;
+  margin-bottom: 5px;
 }
 .profile__description {
   font-size: 18px;
@@ -47,6 +54,10 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 5px;
 }
 .profile__image {
   height: 120px;
@@ -54,7 +65,7 @@
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
-  margin-right: 24px;
+  margin-right: 30px;
 }
 
 @media screen and (max-width: 480px) {
@@ -72,20 +83,20 @@
   .profile__description {
     width: 100%;
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+    font-size: 14px;
   }
   .profile__add-button {
     margin: 0;
     width: 282px;
   }
   .profile__edit-button {
-    margin: 0;
     margin-right: 40px;
     width: 18px;
     height: 18px;
   }
   .profile__image {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     margin-top: 30px;
     align-items: center;
     display: flex;
@@ -93,28 +104,10 @@
   }
   .profile__title {
     font-size: 22px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     margin-left: 25px;
     margin-right: auto;
     text-align: center;
     width: 100%;
-  }
-  .header {
-    width: 100%;
-    align-items: baseline;
-    margin-top: 25px;
-    margin-left: 30px;
-    margin-bottom: 25px;
-  }
-  .header__logo {
-    max-width: 126px;
-    height: 24px;
-  }
-  .footer {
-    font-size: 14px;
-    margin-left: 19px;
-    width: 100%;
+    margin-bottom: 0;
   }
 }

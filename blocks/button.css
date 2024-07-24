@@ -1,12 +1,12 @@
 .button {
+  transition: background-color 0.3s;
 }
 .button:hover {
   opacity: 50%;
 }
-.button__p {
-  cursor: pointer;
+.button__profiel {
   transition: background-color 0.3s;
 }
-.button__p:hover{
-opacity: 60%;
+.button__profiel:hover {
+  opacity: 60%;
 }

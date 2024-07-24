@@ -1,5 +1,8 @@
 .header {
   margin-top: 45px;
+  max-width: 880px;
+  height: 74px;
+  border-bottom:solid #545454 1px;
 }
 .header__logo {
   max-width: 173px;

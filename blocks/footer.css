@@ -9,7 +9,7 @@
   line-height: 21.78px;
 }
 @media screen and (max-width: 480px) {
-  .footer {
+  .footer__name {
     font-size: 14px;
     margin-left: 19px;
     width: 100%;

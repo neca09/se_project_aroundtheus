@@ -1,8 +1,8 @@
 .header {
   margin-top: 45px;
   max-width: 880px;
-  height: 74px;
-  border-bottom:solid #545454 1px;
+  min-height: 74px;
+  border-bottom: solid #5454547a(0, 0%, 70%, 0.385) 1px;
 }
 .header__logo {
   max-width: 173px;
@@ -17,6 +17,6 @@
   }
   .header__logo {
     max-width: 126px;
-    height: 24px;
+    min-height: 24px;
   }
 }

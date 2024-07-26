@@ -33,6 +33,9 @@
   border: none;
   cursor: pointer;
 }
+.card__like-button:hover {
+  opacity: 50%;
+}
 .card__content {
   overflow: hidden;
   text-overflow: ellipsis;

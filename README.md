@@ -37,7 +37,7 @@ The project is deployed on GitHub Pages and can be accessed [here](https://neca0
 
 ## Video Demonstration
 
-A video demonstrating the project can be viewed [here](https://youtu.be/VegDvRLVlOI?si=MZGSSW_Vr6x5CWsDkjdfv)
+A video demonstrating the project can be viewed [here](https://www.loom.com/share/fff5b518e9ff4b3dba090d6b10ec4f34?sid=4d5aa4d6-065c-4c8d-889c-0339e3298b1d)
 
 ## Instructions
 

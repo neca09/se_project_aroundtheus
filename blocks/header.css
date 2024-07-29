@@ -2,21 +2,23 @@
   margin-top: 45px;
   max-width: 880px;
   min-height: 74px;
-  border-bottom: solid #5454547a(0, 0%, 70%, 0.385) 1px;
+  border-bottom: solid hsla(0, 0%, 33%, 0.7) 1px;
 }
 .header__logo {
   max-width: 173px;
 }
 @media screen and (max-width: 480px) {
-  .header {
-    width: 100%;
-    align-items: baseline;
-    margin-top: 25px;
-    margin-left: 30px;
-    margin-bottom: 25px;
-  }
   .header__logo {
     max-width: 126px;
     min-height: 24px;
+    width: 100%;
+    align-items: baseline;
+    margin-left: 30px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+  }
+  .header{
+    margin: 0;
+    padding: 0;
   }
 }

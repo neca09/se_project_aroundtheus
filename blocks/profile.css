@@ -49,12 +49,11 @@
   margin: 0;
   align-items: center;
   padding: 0;
-  width: max-content;
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-right: 15px;
   margin-bottom: 5px;
+  width: 373px;
 }
 .profile__description {
   font-size: 18px;
@@ -66,6 +65,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 5px;
+  max-width: 415px;
 }
 .profile__image {
   height: 120px;
@@ -120,5 +120,23 @@
     width: 100%;
     margin-bottom: 0;
     line-height: 26.63px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile__add-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile__image {
+    margin-left: auto;
+    margin-right: auto;
   }
 }

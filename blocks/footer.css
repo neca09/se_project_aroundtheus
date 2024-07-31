@@ -1,6 +1,8 @@
 .footer {
   margin-top: 50px;
   margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 100%;
 }
 .footer__name {
   margin: 0;
@@ -15,5 +17,12 @@
     width: 100%;
     line-height: 16.94px;
     box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer{
+  align-items: center;
+  display: grid;
+  justify-items: center;
   }
 }

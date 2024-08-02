@@ -10,19 +10,12 @@
   color: #545454;
   line-height: 21.78px;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 720px) {
   .footer__name {
     font-size: 14px;
-    margin-left: 19px;
+    max-width: 288px;
     width: 100%;
     line-height: 16.94px;
     box-sizing: border-box;
-  }
-}
-@media screen and (max-width: 750px) {
-  .footer{
-  align-items: center;
-  display: grid;
-  justify-items: center;
   }
 }

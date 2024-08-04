@@ -23,8 +23,5 @@ const initialCards = [
     title: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
-  {
-    title: "Colombia",
-    link: "https://www.istockphoto.com/photo/world-travel-woman-gm1517164844-524345230?utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fcolombia&utm_medium=affiliate&utm_source=unsplash&utm_term=colombia%3A%3A%3A",
-  },
 ];
+console.log(initialCards);

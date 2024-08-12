@@ -45,8 +45,11 @@
   left: calc(100% + 5px);
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
-
+.modal__close:hover {
+  opacity: 40%;
+}
 .modal__form {
   display: flex;
   flex-direction: column;

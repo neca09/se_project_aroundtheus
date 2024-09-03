@@ -10,26 +10,32 @@
   align-items: center;
   justify-content: center;
   padding: 0 19px;
+  visibility: hidden;
 }
 .modal__container {
+  padding-left: 36px;
+  padding-right: 36px;
   background-color: white;
   margin: auto;
   border-radius: 10px;
   position: relative;
-  width: 430px;
-  min-height: 330px;
+  width: 394px;
+  min-height: 293.49px;
   display: grid;
   align-content: stretch;
+  padding-top: 34px;
+  padding-bottom: 36.51px;
 }
 .modal__heading {
   color: black;
   font-size: 23px;
   display: block;
-  margin-left: 36px;
-  margin-top: 34px;
+  margin: 0;
   line-height: 29.05px;
   font-weight: bold;
-  margin-bottom: 0;
+}
+.modal__opened {
+  visibility: visible;
 }
 .modal__close {
   background-image: url(../images/Close\ Icon.svg);
@@ -58,8 +64,8 @@
 .modal__title {
   border: none;
   border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
-  margin-right: 36px;
-  margin-left: 36px;
+  /* margin-right: 36px;
+  margin-left: 36px; */
   top: 111px;
   margin-top: 54px;
   font-size: 14px;
@@ -69,8 +75,8 @@
 .modal__description {
   border: none;
   border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
-  margin-right: 36px;
-  margin-left: 36px;
+  /* margin-right: 36px;
+  margin-left: 36px; */
   margin-bottom: 48px;
   margin-top: 29.74px;
   font-size: 14px;
@@ -79,14 +85,14 @@
 }
 .modal__button {
   background-color: black;
-  width: 358px;
+  width: 100%;
   min-height: 50.15px;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   align-items: center;
   color: white;
-  margin-bottom: 36.51px;
+  /* margin-bottom: 36.51px; */
   justify-content: center;
   font-size: 18px;
   line-height: 21.78px;

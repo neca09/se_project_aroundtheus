@@ -1,7 +1,7 @@
 let initialCards = [
   {
     name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg.com",
   },
   {
     name: "Lake Louise",
@@ -37,15 +37,15 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".card__list");
+const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const cardContainer = document.querySelector(".cards");
+const cardContainer = document.querySelector(".card");
 
 // Funtions
 
 function closePopop() {
-  profileEditModal.classList.remove("modal");
+  profileEditModal.classList.remove("modal__opened");
 }
 function getCardElement(cardData) {
   // clone the template elmennt with all its content and store it in a cardElement
@@ -54,7 +54,7 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   // set the path to the image to the link filed of the object
-  cardImageEl.scr = cardData.link;
+  cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   // set the image alt text to the name field of the objects
   // set the card title to the name field of the objects, too
@@ -77,7 +77,7 @@ function handleProfileEditSubmit(e) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal");
+  profileEditModal.classList.add("modal__opened");
 });
 
 profileEditCloseButton.addEventListener("click", closePopop);
@@ -85,6 +85,6 @@ profileEditCloseButton.addEventListener("click", closePopop);
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
+  const cardElement = getCardElement();
   cardListEl.prepend(cardElement);
 });

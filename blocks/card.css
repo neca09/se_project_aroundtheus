@@ -36,7 +36,7 @@
 .card__like-button:hover {
   opacity: 50%;
 }
-.card__content {
+.card__title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

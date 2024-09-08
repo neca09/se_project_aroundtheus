@@ -52,6 +52,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
+  width: 90%;
+  margin: 0 auto;
 }
 .modal__close:hover {
   opacity: 40%;
@@ -151,9 +153,10 @@
     width: 26px;
     height: 26px;
     top: -50px;
-    left: 300px;
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
+    right: 0;
+    left: unset;
   }
 }

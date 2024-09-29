@@ -42,25 +42,21 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardContainer = document.querySelector(".card");
 const nameInput = document.querySelector("[name='title']");
-const descriptionInput = document.querySelector("[name='description']")
+const descriptionInput = document.querySelector("[name='description']");
 // Funtions
 
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
 function getCardElement(cardData) {
-  // clone the template elmennt with all its content and store it in a cardElement
   const cardElement = cardTemplate.cloneNode(true);
-  // access the card title and image and store them in variables
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
-  // set the path to the image to the link filed of the object
+
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
-  // set the image alt text to the name field of the objects
-  // set the card title to the name field of the objects, too
   cardTitleEl.textContent = cardData.name;
-  // return the ready HTML element with the field-in data
+
   return cardElement;
 }
 
@@ -90,3 +86,8 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 });
+
+// loop, cards////////////////
+initialCards.forEach((cardData) =>{
+  cardsWrap.prepend(getCardElement(cardData[i]));
+})

@@ -36,6 +36,7 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const addNewCardButton = document.querySelector(".profile__add-button");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
@@ -88,6 +89,6 @@ initialCards.forEach((cardData) => {
 });
 
 // loop, cards////////////////
-initialCards.forEach((cardData) =>{
-  cardsWrap.prepend(getCardElement(cardData[i]));
-})
+initialCards.forEach((cardData) => {
+  cardListEl.prepend(getCardElement(cardData));
+});

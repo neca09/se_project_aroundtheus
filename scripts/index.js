@@ -25,7 +25,17 @@ const initialCards = [
   },
 ];
 // elemenets
+// add button
+const profileAddModal = document.querySelector("#profile-add-modal");
+const profileAddTitleInput = document.querySelector("#add-title-input");
+const profileAddDescriptionInput = document.querySelector(
+  "#add-description-input"
+);
+const profileAddTitle = document.querySelector("#add-title-input");
+const profileAddDescription = document.querySelector("#add-description-input");
+const profileAddCloseButton = document.querySelector("#add-close-button");
 
+// edit button
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
@@ -42,11 +52,14 @@ const cardTemplate =
 const cardContainer = document.querySelector(".card");
 const nameInput = document.querySelector("[name='title']");
 const descriptionInput = document.querySelector("[name='description']");
+const addNewCardButton = document.querySelector(".profile__add-button");
 // Funtions
 
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
+  profileAddModal.classList.remove("modal_opened");
 }
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -77,9 +90,6 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal_opened");
 });
-initialCards.forEach((cardData) => {
-  cardsWrap.prepend(getCardElement(cardData));
-});
 
 profileEditCloseButton.addEventListener("click", closePopup);
 
@@ -89,4 +99,12 @@ initialCards.forEach((cardData) => {
   console.log(cardData);
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
+  // cardsWrap.prepend(getCardElement(cardData));
 });
+
+addNewCardButton.addEventListener("click", () => {
+  profileAddTitleInput.value = profileAddTitle.textContent;
+  profileAddDescriptionInput.value = profileAddDescription.textContent;
+  profileAddModal.classList.add("modal_opened");
+});
+profileAddCloseButton.addEventListener("click", closePopup);

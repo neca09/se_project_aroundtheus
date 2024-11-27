@@ -24,37 +24,31 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-// elemenets
-// add button
+// Elements
 const profileAddModal = document.querySelector("#profile-add-modal");
 const profileAddTitleInput = document.querySelector("#add-title-input");
 const profileAddDescriptionInput = document.querySelector(
   "#add-description-input"
 );
-const profileAddTitle = document.querySelector("#add-title-input");
-const profileAddDescription = document.querySelector("#add-description-input");
 const profileAddCloseButton = document.querySelector("#add-close-button");
+const profileAddForm = document.querySelector("#add-card-form");
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
 
-// edit button
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
+const profileEditCloseButton = document.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
-const cardContainer = document.querySelector(".card");
-const nameInput = document.querySelector("[name='title']");
-const descriptionInput = document.querySelector("[name='description']");
-const addNewCardButton = document.querySelector(".profile__add-button");
-// Funtions
 
+const addNewCardButton = document.querySelector(".profile__add-button");
+
+// Functions
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
   profileAddModal.classList.remove("modal_opened");
@@ -62,19 +56,15 @@ function closePopup() {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
-
   cardTitleEl.textContent = cardData.name;
 
   return cardElement;
 }
-
-// Event Handlers
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -83,8 +73,19 @@ function handleProfileEditSubmit(e) {
   closePopup();
 }
 
-// Event Listenners
+function handleProfileAddSubmit(e) {
+  e.preventDefault();
+  const name = profileAddTitleInput.value;
+  const link = profileAddDescriptionInput.value;
 
+  const newCard = getCardElement({ name, link });
+  cardListEl.prepend(newCard);
+
+  profileAddForm.reset();
+  closePopup();
+}
+
+// Event Listeners
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -92,19 +93,15 @@ profileEditButton.addEventListener("click", () => {
 });
 
 profileEditCloseButton.addEventListener("click", closePopup);
+profileAddCloseButton.addEventListener("click", closePopup);
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 initialCards.forEach((cardData) => {
-  console.log(cardData);
   const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-  // cardsWrap.prepend(getCardElement(cardData));
+  cardListEl.append(cardElement);
 });
 
 addNewCardButton.addEventListener("click", () => {
-  profileAddTitleInput.value = profileAddTitle.textContent;
-  profileAddDescriptionInput.value = profileAddDescription.textContent;
   profileAddModal.classList.add("modal_opened");
 });
-profileAddCloseButton.addEventListener("click", closePopup);

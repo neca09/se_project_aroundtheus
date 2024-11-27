@@ -44,3 +44,7 @@
   margin: 0;
   max-width: 100%;
 }
+
+.card__like-button_active {
+  background-color: url();
+}

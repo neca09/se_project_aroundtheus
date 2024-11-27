@@ -60,7 +60,7 @@
             name="description"
             placeholder="Explorer"
           />
-          <button class="button modal__button" type="submit">Save</button>
+          <button class="button modal__button" id="edit-submit-button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -84,14 +84,14 @@
             name="url"
             placeholder="Image URL"
           />
-          <button class="button modal__button" type="submit">Save</button>
+          <button class="button modal__button" id="add-submit-button" type="submit">Save</button>
         </form>
       </div>
     </div>
 
     <template id="card-template">
       <li class="card">
-        <img class="card__image" src="" alt="" />
+        <img id="card-picture" class="card__image" src="" alt="" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>

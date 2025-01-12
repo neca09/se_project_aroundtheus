@@ -9,6 +9,7 @@
   object-fit: cover;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  cursor: pointer;
 }
 
 .card__description {
@@ -46,5 +47,30 @@
 }
 
 .card__like-button_active {
-  background-color: url();
+  background: url(../images/activate.svg);
+}
+
+.card__delete-button {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  position: relative;
+  top: 40px;
+  left: 240px;
+  right: 60px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.cards__list {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 15px; /* Add space between cards */
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }

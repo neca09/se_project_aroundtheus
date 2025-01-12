@@ -24,17 +24,19 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
 // Elements
 const profileAddModal = document.querySelector("#profile-add-modal");
 const profileAddTitleInput = document.querySelector("#add-title-input");
 const profileAddDescriptionInput = document.querySelector(
   "#add-description-input"
 );
+const cardsList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template").content;
+
 const profileAddCloseButton = document.querySelector("#add-close-button");
 const profileAddForm = document.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -49,51 +51,100 @@ const profileDescriptionInput = document.querySelector(
 const addNewCardButton = document.querySelector(".profile__add-button");
 
 // Functions
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
-  profileAddModal.classList.remove("modal_opened");
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const deleteButtonEl = cardElement.querySelector(".card__delete-button");
 
+  // Set card content
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
+
+  // Add delete button functionality
+  deleteButtonEl.addEventListener("click", () => {
+    cardElement.remove(); // Removes the specific card element
+  });
 
   return cardElement;
 }
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  profileTitle.textContent = profileTitleInput.value.trim();
+  profileDescription.textContent = profileDescriptionInput.value.trim();
+  closePopup(profileEditModal);
 }
 
 function handleProfileAddSubmit(e) {
   e.preventDefault();
-  const name = profileAddTitleInput.value;
-  const link = profileAddDescriptionInput.value;
+  const name = profileAddTitleInput.value.trim();
+  const link = profileAddDescriptionInput.value.trim();
+
+  if (!name || !link) {
+    alert("Please fill in both fields.");
+    return;
+  }
 
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
 
   profileAddForm.reset();
-  closePopup();
+  closePopup(profileAddModal);
+}
+
+// Fullscreen Image View
+function openImageFullscreen(imageSrc, imageAlt) {
+  // Create fullscreen overlay dynamically
+  const fullscreenOverlay = document.createElement("div");
+  fullscreenOverlay.className = "fullscreen-overlay";
+
+  // Add image content
+  fullscreenOverlay.innerHTML = `
+    <img class="fullscreen-image" src="${imageSrc}" alt="${imageAlt}" />
+    <button class="fullscreen-close">&times;</button>
+  `;
+
+  // Append overlay to the body
+  document.body.appendChild(fullscreenOverlay);
+
+  // Close functionality
+  const closeButton = fullscreenOverlay.querySelector(".fullscreen-close");
+  closeButton.addEventListener("click", () => {
+    fullscreenOverlay.remove();
+  });
+
+  // Allow clicking anywhere on the overlay to close
+  fullscreenOverlay.addEventListener("click", (event) => {
+    if (event.target === fullscreenOverlay) {
+      fullscreenOverlay.remove();
+    }
+  });
 }
 
 // Event Listeners
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openPopup(profileEditModal);
 });
 
-profileEditCloseButton.addEventListener("click", closePopup);
-profileAddCloseButton.addEventListener("click", closePopup);
+profileEditCloseButton.addEventListener("click", () =>
+  closePopup(profileEditModal)
+);
+
+profileAddCloseButton.addEventListener("click", () =>
+  closePopup(profileAddModal)
+);
 
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
@@ -102,6 +153,14 @@ initialCards.forEach((cardData) => {
   cardListEl.append(cardElement);
 });
 
-addNewCardButton.addEventListener("click", () => {
-  profileAddModal.classList.add("modal_opened");
+addNewCardButton.addEventListener("click", () => openPopup(profileAddModal));
+
+cardListEl.addEventListener("click", (event) => {
+  if (event.target.classList.contains("card__image")) {
+    const imageSrc = event.target.src;
+    const imageAlt = event.target.alt;
+    openImageFullscreen(imageSrc, imageAlt); // Open fullscreen view
+  } else if (event.target.classList.contains("card__like-button")) {
+    event.target.classList.toggle("card__like-button_active");
+  }
 });

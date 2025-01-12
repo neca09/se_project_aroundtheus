@@ -60,14 +60,24 @@
             name="description"
             placeholder="Explorer"
           />
-          <button class="button modal__button" id="edit-submit-button" type="submit">Save</button>
+          <button
+            class="button modal__button"
+            id="edit-submit-button"
+            type="submit"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
     <!-- add button -->
     <div class="modal" id="profile-add-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close" id="add-close-button"></button> </button>
+        <button
+          type="button"
+          class="modal__close"
+          id="add-close-button"
+        ></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" id="add-card-form">
           <input
@@ -84,13 +94,20 @@
             name="url"
             placeholder="Image URL"
           />
-          <button class="button modal__button" id="add-submit-button" type="submit">Save</button>
+          <button
+            class="button modal__button"
+            id="add-submit-button"
+            type="submit"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
 
     <template id="card-template">
       <li class="card">
+        <button class="card__delete-button" type="button"></button>
         <img id="card-picture" class="card__image" src="" alt="" />
         <div class="card__description">
           <h2 class="card__title"></h2>

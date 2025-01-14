@@ -162,7 +162,6 @@
   }
 }
 
-
 .fullscreen-overlay {
   position: fixed;
   top: 0;
@@ -182,12 +181,17 @@
 }
 
 .fullscreen-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  color: white;
-  background: none;
+  background-image: url(../images/Close\ Icon.svg);
   border: none;
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  bottom: 290px;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-size: contain;
   cursor: pointer;
+  color: white;
 }
+

@@ -98,9 +98,13 @@ function handleProfileAddSubmit(e) {
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
 
-  profileAddForm.reset();
+  profileAddForm();
   closePopup(profileAddModal);
 }
+
+const profileEditForm = document.querySelector(".modal__form");
+
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // Fullscreen Image View
 function openImageFullscreen(imageSrc, imageAlt) {

@@ -169,37 +169,6 @@ cardListEl.addEventListener("click", (event) => {
   }
 });
 
-// Open modal on image click
-imageCards.forEach(image => {
-  image.addEventListener('click', () => {
-    // Set the modal image source to the clicked image
-    fullscreenImage.src = image.src;
-
-    // Set the caption text (use alt attribute or data-name)
-    const captionText = image.alt || image.getAttribute('data-name') || 'Untitled';
-    document.getElementById('imageCaption').textContent = captionText;
-
-    // Show the modal
-    modal.style.display = 'flex';
-  });
-});
-
-// Close modal on close button click
-closeModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-  fullscreenImage.src = ''; // Clear the image source
-  document.getElementById('imageCaption').textContent = ''; // Clear the caption text
-});
-
-// Close modal on outside click
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-    fullscreenImage.src = ''; // Clear the image source
-    document.getElementById('imageCaption').textContent = ''; // Clear the caption text
-  }
-});
-
 function openImageFullscreen(imageSrc, imageAlt) {
   // Create fullscreen overlay dynamically
   const fullscreenOverlay = document.createElement("div");

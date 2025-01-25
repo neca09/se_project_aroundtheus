@@ -65,6 +65,7 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
+  cursor: pointer;
 }
 .cards__list {
   display: flex;
@@ -74,3 +75,15 @@
   margin: 0;
   list-style: none;
 }
+
+.card__figure {
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+}
+.card__figcaption {
+  font-size: 14px;
+  color: gray;
+  margin-top: 5px;
+}
+

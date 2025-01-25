@@ -168,3 +168,64 @@ cardListEl.addEventListener("click", (event) => {
     event.target.classList.toggle("card__like-button_active");
   }
 });
+
+// Open modal on image click
+imageCards.forEach(image => {
+  image.addEventListener('click', () => {
+    // Set the modal image source to the clicked image
+    fullscreenImage.src = image.src;
+
+    // Set the caption text (use alt attribute or data-name)
+    const captionText = image.alt || image.getAttribute('data-name') || 'Untitled';
+    document.getElementById('imageCaption').textContent = captionText;
+
+    // Show the modal
+    modal.style.display = 'flex';
+  });
+});
+
+// Close modal on close button click
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+  fullscreenImage.src = ''; // Clear the image source
+  document.getElementById('imageCaption').textContent = ''; // Clear the caption text
+});
+
+// Close modal on outside click
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    fullscreenImage.src = ''; // Clear the image source
+    document.getElementById('imageCaption').textContent = ''; // Clear the caption text
+  }
+});
+
+function openImageFullscreen(imageSrc, imageAlt) {
+  // Create fullscreen overlay dynamically
+  const fullscreenOverlay = document.createElement("div");
+  fullscreenOverlay.className = "fullscreen-overlay";
+
+  // Add image content
+  fullscreenOverlay.innerHTML = `
+    <img class="fullscreen-image" src="${imageSrc}" alt="${imageAlt}" />
+    <p class="fullscreen-caption">${imageAlt}</p>
+    <button class="fullscreen-close">&times;</button>
+    </div>
+  `;
+
+  // Append overlay to the body
+  document.body.appendChild(fullscreenOverlay);
+
+  // Close functionality
+  const closeButton = fullscreenOverlay.querySelector(".fullscreen-close");
+  closeButton.addEventListener("click", () => {
+    fullscreenOverlay.remove();
+  });
+
+  // Allow clicking anywhere on the overlay to close
+  fullscreenOverlay.addEventListener("click", (event) => {
+    if (event.target === fullscreenOverlay) {
+      fullscreenOverlay.remove();
+    }
+  });
+}

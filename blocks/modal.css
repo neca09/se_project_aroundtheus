@@ -11,7 +11,7 @@
   justify-content: center;
   padding: 0 19px;
   visibility: hidden;
-  transition: opacity 0.3s ease;
+  transition: visibility 0.3s opacity 0.3s ease-in;
 }
 .modal__container {
   padding-left: 36px;
@@ -173,11 +173,16 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .fullscreen-image {
   max-width: 433px;
   max-height: 540px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Ensures the image scales proportionally */
 }
 
 .fullscreen-close {
@@ -195,3 +200,20 @@
   color: white;
 }
 
+.fullscreen-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px; 
+  color: white; 
+  font-size: 16px; 
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0;
+}
+.fullscreen-container {
+  position: relative; /* Makes the label position relative to this container */
+  display: inline-block; /* Ensures the container sizes to the image */
+  width: 100%;
+  height: 100%;
+}

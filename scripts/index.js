@@ -97,40 +97,46 @@ function handleProfileAddSubmit(e) {
 
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
-
-  profileAddForm();
-  closePopup(profileAddModal);
 }
 
 const profileEditForm = document.querySelector(".modal__form");
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-// Fullscreen Image View
+// Fullscreen Image Functionality
 function openImageFullscreen(imageSrc, imageAlt) {
-  // Create fullscreen overlay dynamically
   const fullscreenOverlay = document.createElement("div");
   fullscreenOverlay.className = "fullscreen-overlay";
 
-  // Add image content
   fullscreenOverlay.innerHTML = `
     <img class="fullscreen-image" src="${imageSrc}" alt="${imageAlt}" />
+    <p class="fullscreen-caption">${imageAlt}</p>
     <button class="fullscreen-close">&times;</button>
   `;
 
-  // Append overlay to the body
   document.body.appendChild(fullscreenOverlay);
+
+  // Add class to trigger transition for opening fullscreen
+  setTimeout(() => {
+    fullscreenOverlay.classList.add("fullscreen-opened");
+  }, 0);
 
   // Close functionality
   const closeButton = fullscreenOverlay.querySelector(".fullscreen-close");
   closeButton.addEventListener("click", () => {
-    fullscreenOverlay.remove();
+    fullscreenOverlay.classList.remove("fullscreen-opened");
+    setTimeout(() => {
+      fullscreenOverlay.remove();
+    }, 300); // Matches the transition duration in CSS
   });
 
   // Allow clicking anywhere on the overlay to close
   fullscreenOverlay.addEventListener("click", (event) => {
     if (event.target === fullscreenOverlay) {
-      fullscreenOverlay.remove();
+      fullscreenOverlay.classList.remove("fullscreen-opened");
+      setTimeout(() => {
+        fullscreenOverlay.remove();
+      }, 300); // Matches the transition duration in CSS
     }
   });
 }
@@ -168,33 +174,3 @@ cardListEl.addEventListener("click", (event) => {
     event.target.classList.toggle("card__like-button_active");
   }
 });
-
-function openImageFullscreen(imageSrc, imageAlt) {
-  // Create fullscreen overlay dynamically
-  const fullscreenOverlay = document.createElement("div");
-  fullscreenOverlay.className = "fullscreen-overlay";
-
-  // Add image content
-  fullscreenOverlay.innerHTML = `
-    <img class="fullscreen-image" src="${imageSrc}" alt="${imageAlt}" />
-    <p class="fullscreen-caption">${imageAlt}</p>
-    <button class="fullscreen-close">&times;</button>
-    </div>
-  `;
-
-  // Append overlay to the body
-  document.body.appendChild(fullscreenOverlay);
-
-  // Close functionality
-  const closeButton = fullscreenOverlay.querySelector(".fullscreen-close");
-  closeButton.addEventListener("click", () => {
-    fullscreenOverlay.remove();
-  });
-
-  // Allow clicking anywhere on the overlay to close
-  fullscreenOverlay.addEventListener("click", (event) => {
-    if (event.target === fullscreenOverlay) {
-      fullscreenOverlay.remove();
-    }
-  });
-}

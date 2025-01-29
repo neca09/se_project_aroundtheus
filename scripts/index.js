@@ -97,6 +97,11 @@ function handleProfileAddSubmit(e) {
 
   const newCard = getCardElement({ name, link });
   cardListEl.prepend(newCard);
+
+  closePopup(profileAddModal);
+
+  profileAddTitleInput.value = "";
+  profileAddDescriptionInput.value = "";
 }
 
 const profileEditForm = document.querySelector(".modal__form");
@@ -136,7 +141,7 @@ function openImageFullscreen(imageSrc, imageAlt) {
       fullscreenOverlay.classList.remove("fullscreen-opened");
       setTimeout(() => {
         fullscreenOverlay.remove();
-      }, 300); // Matches the transition duration in CSS
+      }, 300); 
     }
   });
 }

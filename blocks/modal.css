@@ -191,10 +191,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.fullscreen-overlay.fullscreen-opened .fullscreen-image {
-  transform: scale(1);
-}
-
 .fullscreen-caption {
   position: absolute;
   bottom: 20px;
@@ -211,8 +207,15 @@
   top: 20px;
   right: 20px;
   background: transparent;
-  color: white;
-  font-size: 24px;
+  background-image: url(../images/Close\ Icon.svg);
   border: none;
+  background-color: transparent;
+  outline: none;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-size: contain;
   cursor: pointer;
+  color: white;
 }

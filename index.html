@@ -113,17 +113,18 @@
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
         </div>
-        <div id="modal" style="display: none">
-          <div class="image-container">
-            <img id="fullscreenImage" src="" alt="Full-screen" />
-            <button id="closeModal" class="close-btn">X</button>
-          </div>
-        </div>
-        <div id="modal" style="display: none">
-          <div class="image-container">
-            <img id="fullscreenImage" src="" alt="Full-screen" />
-            <button id="closeModal" class="close-btn">X</button>
-            <p id="imageCaption" class="caption"></p>
+        <div id="fullscreenModal" class="fullscreen-overlay">
+          <div class="fullscreen-image-container">
+            <img
+              id="fullscreenImage"
+              class="fullscreen-image"
+              src=""
+              alt="Full-screen Image"
+            />
+            <button id="closeFullscreen" class="fullscreen-close">X</button>
+            <p id="fullscreenCaption" class="fullscreen-caption">
+              Image Caption
+            </p>
           </div>
         </div>
       </li>

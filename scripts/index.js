@@ -32,12 +32,13 @@ const profileAddDescriptionInput = document.querySelector(
   "#add-description-input"
 );
 const cardsList = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector("#card-template").content;
-
+const cardCaption = document.querySelector(".modal__caption");
+const cardTemplate = document.querySelector("#card-template");
+const cardImageEl = document.querySelector(".cards__list");
 const profileAddCloseButton = document.querySelector("#add-close-button");
 const profileAddForm = document.querySelector("#add-card-form");
 const cardListEl = document.querySelector(".cards__list");
-
+const cardImage = document.querySelector(".modal__fullscreen-image");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileEditCloseButton = document.querySelector(".modal__close");
@@ -47,6 +48,7 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const previewModal = document.querySelector("#image-preview-modal");
 
 const addNewCardButton = document.querySelector(".profile__add-button");
 
@@ -59,8 +61,18 @@ function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function handleImageClick(cardData) {
+  let data = cardData;
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardCaption.textContent = data.name;
+  openPopup(previewModal);
+}
+
 function getCardElement(cardData) {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const deleteButtonEl = cardElement.querySelector(".card__delete-button");
@@ -73,6 +85,10 @@ function getCardElement(cardData) {
   // Add delete button functionality
   deleteButtonEl.addEventListener("click", () => {
     cardElement.remove(); // Removes the specific card element
+  });
+
+  cardImageEl.addEventListener("click", () => {
+    handleImageClick(cardData);
   });
 
   return cardElement;
@@ -109,42 +125,42 @@ const profileEditForm = document.querySelector(".modal__form");
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 // Fullscreen Image Functionality
-function openImageFullscreen(imageSrc, imageAlt) {
-  const fullscreenOverlay = document.createElement("div");
-  fullscreenOverlay.className = "fullscreen-overlay";
+// function openImageFullscreen(imageSrc, imageAlt) {
+//   const fullscreenOverlay = document.createElement("div");
+//   fullscreenOverlay.className = "fullscreen-overlay";
 
-  fullscreenOverlay.innerHTML = `
-    <img class="fullscreen-image" src="${imageSrc}" alt="${imageAlt}" />
-    <p class="fullscreen-caption">${imageAlt}</p>
-    <button class="fullscreen-close">&times;</button>
-  `;
+//   fullscreenOverlay.innerHTML = `
+//     <img class="fullscreen-image" src="${imageSrc}" alt="${imageAlt}" />
+//     <p class="fullscreen-caption">${imageAlt}</p>
+//     <button class="fullscreen-close">&times;</button>
+//   `;
 
-  document.body.appendChild(fullscreenOverlay);
+//   document.body.appendChild(fullscreenOverlay);
 
-  // Add class to trigger transition for opening fullscreen
-  setTimeout(() => {
-    fullscreenOverlay.classList.add("fullscreen-opened");
-  }, 0);
+//   // Add class to trigger transition for opening fullscreen
+//   setTimeout(() => {
+//     fullscreenOverlay.classList.add("fullscreen-opened");
+//   }, 0);
 
-  // Close functionality
-  const closeButton = fullscreenOverlay.querySelector(".fullscreen-close");
-  closeButton.addEventListener("click", () => {
-    fullscreenOverlay.classList.remove("fullscreen-opened");
-    setTimeout(() => {
-      fullscreenOverlay.remove();
-    }, 300); // Matches the transition duration in CSS
-  });
+// Close functionality
+//   const closeButton = fullscreenOverlay.querySelector(".fullscreen-close");
+//   closeButton.addEventListener("click", () => {
+//     fullscreenOverlay.classList.remove("fullscreen-opened");
+//     setTimeout(() => {
+//       fullscreenOverlay.remove();
+//     }, 300); // Matches the transition duration in CSS
+//   });
 
-  // Allow clicking anywhere on the overlay to close
-  fullscreenOverlay.addEventListener("click", (event) => {
-    if (event.target === fullscreenOverlay) {
-      fullscreenOverlay.classList.remove("fullscreen-opened");
-      setTimeout(() => {
-        fullscreenOverlay.remove();
-      }, 300); 
-    }
-  });
-}
+//   // Allow clicking anywhere on the overlay to close
+//   fullscreenOverlay.addEventListener("click", (event) => {
+//     if (event.target === fullscreenOverlay) {
+//       fullscreenOverlay.classList.remove("fullscreen-opened");
+//       setTimeout(() => {
+//         fullscreenOverlay.remove();
+//       }, 300);
+//     }
+//   });
+// }
 
 // Event Listeners
 profileEditButton.addEventListener("click", () => {
@@ -161,6 +177,8 @@ profileAddCloseButton.addEventListener("click", () =>
   closePopup(profileAddModal)
 );
 
+profileAddCloseButton.addEventListener("click", () => closePopup(previewModal));
+
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 initialCards.forEach((cardData) => {
@@ -168,14 +186,12 @@ initialCards.forEach((cardData) => {
   cardListEl.append(cardElement);
 });
 
-addNewCardButton.addEventListener("click", () => openPopup(profileAddModal));
-
-cardListEl.addEventListener("click", (event) => {
-  if (event.target.classList.contains("card__image")) {
-    const imageSrc = event.target.src;
-    const imageAlt = event.target.alt;
-    openImageFullscreen(imageSrc, imageAlt); // Open fullscreen view
-  } else if (event.target.classList.contains("card__like-button")) {
-    event.target.classList.toggle("card__like-button_active");
-  }
-});
+// cardListEl.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("card__image")) {
+//     const imageSrc = event.target.src;
+//     const imageAlt = event.target.alt;
+//     openImageFullscreen(imageSrc, imageAlt); // Open fullscreen view
+//   } else if (event.target.classList.contains("card__like-button")) {
+//     event.target.classList.toggle("card__like-button_active");
+//   }
+// });

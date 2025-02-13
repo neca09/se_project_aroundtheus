@@ -105,29 +105,24 @@
       </div>
     </div>
 
+    <!-- create an image modal -->
+    <div class="modal" id="image-preview-modal">
+      <button class="modal__close modal__close-preview">X</button>
+      <div class="modal__image-container">
+        <img id="preview-Image" class="modal__fullscreen-image" src="#" alt="" />
+        <p id="full-screen-Caption" class="modal__caption"></p>
+      </div>
+    </div>
     <template id="card-template">
-      <li class="card">
+      <div class="card">
         <button class="card__delete-button" type="button"></button>
         <img id="card-picture" class="card__image" src="" alt="" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
         </div>
-        <div id="fullscreenModal" class="fullscreen-overlay">
-          <div class="fullscreen-image-container">
-            <img
-              id="fullscreenImage"
-              class="fullscreen-image"
-              src=""
-              alt="Full-screen Image"
-            />
-            <button id="closeFullscreen" class="fullscreen-close">X</button>
-            <p id="fullscreenCaption" class="fullscreen-caption">
-              Image Caption
-            </p>
-          </div>
-        </div>
-      </li>
+        <div id="fullscreenModal" class="fullscreen-overlay"></div>
+      </div>
     </template>
 
     <script src="./scripts/index.js"></script>

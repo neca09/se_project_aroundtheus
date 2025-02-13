@@ -51,8 +51,6 @@
   height: 40px;
   top: -45px;
   right: -45px;
-  bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -62,6 +60,15 @@
 .modal__close:hover {
   opacity: 40%;
 }
+
+.modal__close-preview {
+  top: 70px;
+  right: 128px;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -159,6 +166,11 @@
     right: 0;
     left: unset;
   }
+
+  .modal__close-preview {
+    top: 20px;
+    right: -10px;
+  }
 }
 
 .fullscreen-overlay {
@@ -183,7 +195,7 @@
   transition-delay: 0s;
 }
 
-.fullscreen-image {
+.modal__fullscreen-image {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
@@ -191,10 +203,10 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.fullscreen-caption {
+.modal__caption {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 70px;
+  left: 120px;
   color: white;
   font-size: 16px;
   background-color: rgba(0, 0, 0, 0.7);

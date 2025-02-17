@@ -50,20 +50,21 @@
   width: 40px;
   height: 40px;
   top: -45px;
-  right: -45px;
+  right: -420px;
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
   width: 90%;
   margin: 0 auto;
 }
+
 .modal__close:hover {
   opacity: 40%;
 }
 
 .modal__close-preview {
-  top: 70px;
-  right: 128px;
+  top: -45px;
+  right: -50px;
   z-index: 1000;
   width: 40px;
   height: 40px;
@@ -196,22 +197,21 @@
 }
 
 .modal__fullscreen-image {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  transform: scale(0.8);
+  max-width: 75vw;
+  max-height: 75vh;
+  width: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
+  display: block;
 }
 
 .modal__caption {
   position: absolute;
-  bottom: 70px;
-  left: 120px;
+  left: 0px;
   color: white;
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
+  font-size: 12px;
   border-radius: 5px;
+  padding-top: 10px;
 }
 
 .fullscreen-close {
@@ -230,4 +230,8 @@
   background-size: contain;
   cursor: pointer;
   color: white;
+}
+
+.modal__image-container {
+  position: relative;
 }

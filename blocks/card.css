@@ -46,7 +46,7 @@
   max-width: 100%;
 }
 
-.card__like-button_active {
+.card__like-button-active {
   background: url(../images/activate.svg);
 }
 

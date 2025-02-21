@@ -113,6 +113,7 @@
     align-content: stretch;
     padding-top: 25px;
     padding-bottom: 25px;
+    max-height: 322px;
   }
   .modal__heading {
     color: black;
@@ -169,8 +170,8 @@
   }
 
   .modal__close-preview {
-    top: 20px;
-    right: -10px;
+    top: -30px;
+    right: -30px;
   }
 }
 

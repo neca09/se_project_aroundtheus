@@ -55,13 +55,67 @@ const previewModalCloseButton = previewModal.querySelector(".modal__close");
 const cardLikeButton = document.querySelector(".card__like-button");
 const cardLikeActive = document.querySelector(".card__like-button-active");
 const addOpenButton = document.querySelector("#add-submit-button");
+const modals = document.querySelectorAll(".modal");
 // Functions
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  /*document.addEventListener("keyup", handleEscUp) */
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  /*document.addEventListener("keyup", handleEscUp) */
+}
+``;
+function handleClosePopup(evt) {
+  if (
+    evt.target.classList.contains("modal") ||
+    evt.target.classList.contains("modal__close")
+  ) {
+    closePopup(evt.currentTarget);
+  }
+}
+
+/* isEscEvent() function
+we will pass evt and action as arguments
+create if else statement with condition
+evt.key === "Escape"
+then creat variable for popupactive = to Modal__opened
+last line should be something like this
+action(popupactive)
+*/
+
+/* 
+make handle escape function make evt an argument
+evt.preventDefault()
+
+use your isEscEvent funtion 
+isEscEvent(evt, closeModal)
+pass 
+*/
+// Corrected isEscEvent function
+function isEscEvent(evt, action) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened"); // Fixed selector
+    if (openedModal) {
+      action(openedModal);
+    }
+  }
+}
+
+function handleEscUp(evt) {
+  evt.preventDefault();
+  isEscEvent(evt, closeModal); // Ensure closeModal is passed as the action
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keyup", handleEscUp);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", handleEscUp);
 }
 
 function handleImageClick(cardData) {
@@ -101,6 +155,10 @@ function getCardElement(cardData) {
 
   return cardElement;
 }
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", handleClosePopup);
+});
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -142,18 +200,13 @@ profileEditButton.addEventListener("click", () => {
 profileEditCloseButton.addEventListener("click", () =>
   closePopup(profileEditModal)
 );
-
 profileAddCloseButton.addEventListener("click", () =>
   closePopup(profileAddModal)
 );
-
 previewModalCloseButton.addEventListener("click", () =>
   closePopup(previewModal)
 );
 
-previewModalCloseButton.addEventListener("click", () =>
-  closePopup(previewModal)
-);
 addNewCardButton.addEventListener("click", () => openPopup(profileAddModal));
 
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);

@@ -1,0 +1,6 @@
+.popup__error {
+  color: red;
+}
+.modal__input_type_error {
+  border-bottom: solid red;
+}

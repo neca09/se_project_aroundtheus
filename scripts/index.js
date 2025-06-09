@@ -59,12 +59,12 @@ const modals = document.querySelectorAll(".modal");
 // Functions
 function openPopup(modal) {
   modal.classList.add("modal_opened");
-  /*document.addEventListener("keyup", handleEscUp) */
+  document.addEventListener("keyup", handleEscUp);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
-  /*document.addEventListener("keyup", handleEscUp) */
+  document.addEventListener("keyup", handleEscUp);
 }
 ``;
 function handleClosePopup(evt) {
@@ -105,7 +105,7 @@ function isEscEvent(evt, action) {
 
 function handleEscUp(evt) {
   evt.preventDefault();
-  isEscEvent(evt, closeModal); // Ensure closeModal is passed as the action
+  isEscEvent(evt, closePopup); // Ensure closeModal is passed as the action
 }
 
 function openModal(modal) {

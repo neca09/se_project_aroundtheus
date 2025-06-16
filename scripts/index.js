@@ -64,7 +64,7 @@ function openPopup(modal) {
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
-  document.addEventListener("keyup", handleEscUp);
+  document.removeEventListener("keyup", handleEscUp);
 }
 ``;
 function handleClosePopup(evt) {
@@ -76,23 +76,6 @@ function handleClosePopup(evt) {
   }
 }
 
-/* isEscEvent() function
-we will pass evt and action as arguments
-create if else statement with condition
-evt.key === "Escape"
-then creat variable for popupactive = to Modal__opened
-last line should be something like this
-action(popupactive)
-*/
-
-/* 
-make handle escape function make evt an argument
-evt.preventDefault()
-
-use your isEscEvent funtion 
-isEscEvent(evt, closeModal)
-pass 
-*/
 // Corrected isEscEvent function
 function isEscEvent(evt, action) {
   if (evt.key === "Escape") {
@@ -106,16 +89,6 @@ function isEscEvent(evt, action) {
 function handleEscUp(evt) {
   evt.preventDefault();
   isEscEvent(evt, closePopup); // Ensure closeModal is passed as the action
-}
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keyup", handleEscUp);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keyup", handleEscUp);
 }
 
 function handleImageClick(cardData) {
@@ -196,16 +169,6 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = profileDescription.textContent;
   openPopup(profileEditModal);
 });
-
-profileEditCloseButton.addEventListener("click", () =>
-  closePopup(profileEditModal)
-);
-profileAddCloseButton.addEventListener("click", () =>
-  closePopup(profileAddModal)
-);
-previewModalCloseButton.addEventListener("click", () =>
-  closePopup(previewModal)
-);
 
 addNewCardButton.addEventListener("click", () => openPopup(profileAddModal));
 

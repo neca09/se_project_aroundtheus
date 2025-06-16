@@ -1,6 +1,15 @@
-.popup__error {
+.modal__error {
   color: red;
+  position: absolute;
+  display: contents;
 }
 .modal__input_type_error {
   border-bottom: solid red;
+}
+.modal__button_disabled {
+  background-color: white;
+  color: gray;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
 }

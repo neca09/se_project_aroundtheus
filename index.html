@@ -46,31 +46,35 @@
         <button type="button" class="modal__close"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
-          <input
-            id="profile-title-input"
-            class="modal__input"
-            type="text"
-            name="title"
-            placeholder="Jacques Cousteau"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="modal__error" id="profile-title-input-error"></span>
-          <input
-            id="profile-description-input"
-            class="modal__input"
-            type="text"
-            name="description"
-            placeholder="Explorer"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span
-            class="modal__error"
-            id="profile-description-input-error"
-          ></span>
+          <div class="modal__input-container">
+            <input
+              id="profile-title-input"
+              class="modal__input"
+              type="text"
+              name="title"
+              placeholder="Jacques Cousteau"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="modal__error" id="profile-title-input-error"></span>
+          </div>
+          <div class="modal__input-container">
+            <input
+              id="profile-description-input"
+              class="modal__input"
+              type="text"
+              name="description"
+              placeholder="Explorer"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
+          </div>
           <button
             class="button modal__button"
             id="edit-submit-button"
@@ -109,7 +113,6 @@
             name="url"
             placeholder="Image URL"
             required
-            
           />
           <span class="modal__error" id="add-description-input-error"></span>
           <button

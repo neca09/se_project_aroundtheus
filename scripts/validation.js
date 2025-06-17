@@ -21,6 +21,7 @@ function hideInputError(formEl, inputEl, config) {
   inputEl.classList.remove(config.inputErrorClass);
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(config.errorClass);
+  console.log(errorMessageEl.status);
 }
 
 function checkInputValidity(formEl, inputEl, config) {
@@ -48,7 +49,7 @@ function enableValidation(config) {
   });
 }
 function checkInputValidity(formEl, inputEl, config) {
-  if (inputEl.type === "url" && inputEl.value && !isValidUrl(inputEl.value)) {
+  if (inputEl.type === "url" && inputEl.value && !inputEl.validity.valid) {
     showInputError(formEl, inputEl, config, "Please enter a valid URL.");
   } else if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, config, inputEl.validationMessage);

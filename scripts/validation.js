@@ -25,7 +25,14 @@ function hideInputError(formEl, inputEl, config) {
 }
 
 function checkInputValidity(formEl, inputEl, config) {
-  if (!inputEl.validity.valid) {
+  if (inputEl.value.length === 1) {
+    showInputError(
+      formEl,
+      inputEl,
+      config,
+      "Input must be more than 1 character"
+    );
+  } else if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, config, inputEl.validationMessage);
   } else {
     hideInputError(formEl, inputEl, config);
@@ -48,7 +55,7 @@ function enableValidation(config) {
     setEventListeners(formEl, config);
   });
 }
-function checkInputValidity(formEl, inputEl, config) {
+/*function checkInputValidity(formEl, inputEl, config) {
   if (inputEl.type === "url" && inputEl.value && !inputEl.validity.valid) {
     showInputError(formEl, inputEl, config, "Please enter a valid URL.");
   } else if (!inputEl.validity.valid) {
@@ -56,7 +63,7 @@ function checkInputValidity(formEl, inputEl, config) {
   } else {
     hideInputError(formEl, inputEl, config);
   }
-}
+}*/
 function toggleButtonState(inputEls, buttonEl, config) {
   const isFormValid = inputEls.every((inputEl) => inputEl.validity.valid);
   if (!isFormValid) {

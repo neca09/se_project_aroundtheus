@@ -95,26 +95,31 @@
         ></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" id="add-card-form">
-          <input
-            id="add-title-input"
-            class="modal__input modal__input_type_title"
-            type="text"
-            name="title"
-            placeholder="Title"
-            minlength="1"
-            maxlength="30"
-            required
-          />
-          <span class="modal__error" id="add-title-input-error"></span>
-          <input
-            id="add-description-input"
-            class="modal__input modal__input_type_url"
-            type="url"
-            name="url"
-            placeholder="Image URL"
-            required
-          />
-          <span class="modal__error" id="add-description-input-error"></span>
+          <div class="modal__input-container">
+            <input
+              id="add-title-input"
+              class="modal__input modal__input_type_title"
+              type="text"
+              name="title"
+              placeholder="Title"
+              minlength="1"
+              maxlength="30"
+              required
+            />
+
+            <span class="modal__error" id="add-title-input-error"></span>
+          </div>
+          <div class="modal__input-container">
+            <input
+              id="add-description-input"
+              class="modal__input modal__input_type_url"
+              type="url"
+              name="url"
+              placeholder="Image URL"
+              required
+            />
+            <span class="modal__error" id="add-description-input-error"></span>
+          </div>
           <button
             class="button modal__button"
             id="add-submit-button"

@@ -1,4 +1,4 @@
-# Project 3: Around The U.S.
+# Around The U.S.
 
 ## Overview
 
@@ -18,6 +18,7 @@ The project provides a platform for users to explore different locations across 
 - CSS (BEM methodology)
 - Responsive design
 - GitHub Pages for deployment
+- JavaScript
 
 ## Features
 

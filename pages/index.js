@@ -1,40 +1,6 @@
-import FormValidator from "../components/FromValidation.js";
-import Card from "../components/card.js";
-
-// Sample cards
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-const validationSettings = {
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
+import FormValidator from "../components/FromValidator.js";
+import Card from "../components/Card.js";
+import { v4 as uuidv4 } from "uuid";
 
 // DOM Elements
 const cardsList = document.querySelector(".cards__list");
@@ -142,21 +108,29 @@ function handleProfileAddSubmit(e) {
   profileAddTitleInput.value = "";
   profileAddDescriptionInput.value = "";
 }
-// function handleProfileAddSubmit(e) {
-//   e.preventDefault();
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
 
-//   const name = profileAddTitleInput.value.trim();
-//   const link = profileAddDescriptionInput.value.trim();
+  // Get the form data
+  const titleInput = document.querySelector("#card-title-input");
+  const linkInput = document.querySelector("#card-link-input");
 
-//   const card = new Card({ name, link }, "#card-template", handleImageClick);
-//   const cardElement = card.getView();
-//   cardsList.prepend(cardElement);
+  // Create the new card data object
+  const newTodo = {
+    id: uuidv4(), // Generate unique ID
+    name: titleInput.value,
+    link: linkInput.value,
+  };
 
-//   profileAddForm.reset();
-//   addCardValidator.resetValidation(); // disable submit + clear errors
-//   closePopup(profileAddModal);
-// }
+  // Create a new Card instance
+  const cardElement = createCard(newTodo);
 
+  // Add it to the page
+  cardListSection.prepend(cardElement);
+
+  // Reset the form
+  evt.target.reset();
+}
 // Initialize modals
 modals.forEach((modal) => {
   modal.addEventListener("mousedown", handleClosePopup);

@@ -43,7 +43,6 @@
   white-space: nowrap;
   max-width: 219px;
   margin: 0;
-  max-width: 100%;
 }
 
 .card__like-button_is-active {
@@ -64,7 +63,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
   cursor: pointer;
 }
 .cards__list {

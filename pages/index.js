@@ -1,7 +1,6 @@
-import FormValidator from "../components/FromValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import { v4 as uuidv4 } from "uuid";
-
+import { initialCards, validationSettings } from "../pages/utils/constants.js";
 // DOM Elements
 const cardsList = document.querySelector(".cards__list");
 const cardTemplateSelector = "#card-template";
@@ -116,14 +115,13 @@ function handleAddCardFormSubmit(evt) {
   const linkInput = document.querySelector("#card-link-input");
 
   // Create the new card data object
-  const newTodo = {
-    id: uuidv4(), // Generate unique ID
+  const newCard = {
     name: titleInput.value,
     link: linkInput.value,
   };
 
   // Create a new Card instance
-  const cardElement = createCard(newTodo);
+  const cardElement = createCard(newCard);
 
   // Add it to the page
   cardListSection.prepend(cardElement);

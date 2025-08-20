@@ -1,5 +1,3 @@
-// validation.js
-
 const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -8,13 +6,6 @@ const validationConfig = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
-function showInputError(formEl, inputEl, config, errorMessage) {
-  const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.add(config.inputErrorClass);
-  errorMessageEl.textContent = errorMessage;
-  errorMessageEl.classList.add(config.errorClass);
-}
 
 function hideInputError(formEl, inputEl, config) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
@@ -55,15 +46,7 @@ function enableValidation(config) {
     setEventListeners(formEl, config);
   });
 }
-/*function checkInputValidity(formEl, inputEl, config) {
-  if (inputEl.type === "url" && inputEl.value && !inputEl.validity.valid) {
-    showInputError(formEl, inputEl, config, "Please enter a valid URL.");
-  } else if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, config, inputEl.validationMessage);
-  } else {
-    hideInputError(formEl, inputEl, config);
-  }
-}*/
+
 function toggleButtonState(inputEls, buttonEl, config) {
   const isFormValid = inputEls.every((inputEl) => inputEl.validity.valid);
   if (!isFormValid) {

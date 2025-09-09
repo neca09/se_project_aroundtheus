@@ -99,7 +99,6 @@ function handleProfileAddSubmit(e) {
     return;
   }
 
-  const card = new Card({ name, link }, cardTemplateSelector, handleImageClick);
   const newCardElement = card.getView();
   cardsList.prepend(newCardElement);
 
@@ -127,6 +126,7 @@ function handleAddCardFormSubmit(evt) {
   cardListSection.prepend(cardElement);
 
   // Reset the form
+  formValidator.resetValidation();
   evt.target.reset();
 }
 // Initialize modals

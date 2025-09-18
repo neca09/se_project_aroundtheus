@@ -111,14 +111,14 @@ function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
 
   const newCard = {
-    name: profileAddTitleInput.value.trim(),
-    link: profileAddLinkInput.value.trim(),
+    name: profileTitleInput.value.trim(),
+    link: profileDescriptionInput.value.trim(),
   };
 
-  if (!newCard.name || !newCard.link) {
-    alert("Please fill in both fields.");
-    return;
-  }
+  // if (!newCard.name || !newCard.link) {
+  //   alert("Please fill in both fields.");
+  //   return;
+  // }
 
   renderCard(newCard, cardsList);
 

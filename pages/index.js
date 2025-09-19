@@ -10,8 +10,8 @@ const cardTemplateSelector = "#card-template";
 
 const profileAddModal = document.querySelector("#profile-add-modal");
 const profileAddForm = document.querySelector("#add-card-form");
-const profileAddTitleInput = document.querySelector("#card-title-input");
-const profileAddLinkInput = document.querySelector("#card-link-input");
+const profileAddTitleInput = document.querySelector("#add-title-input");
+const profileAddLinkInput = document.querySelector("#add-description-input");
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -111,8 +111,8 @@ function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
 
   const newCard = {
-    name: profileTitleInput.value.trim(),
-    link: profileDescriptionInput.value.trim(),
+    name: profileAddTitleInput.value.trim(),
+    link: profileAddLinkInput.value.trim(),
   };
 
   // if (!newCard.name || !newCard.link) {
